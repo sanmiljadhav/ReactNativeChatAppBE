@@ -5,11 +5,9 @@ const port = 3000;
 const { firebase } = require("./src/firebase/index");
 app.use(express.json()); // This is to parse JSON bodies
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
 
 const sendNotification = async (token,message,senderEmail) => {
+
     try {
         await firebase.messaging().send({
             token: token,
